@@ -5,6 +5,8 @@ import { axiosInstance } from "@/lib/axiosInstance";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
 import { jwtDecode, JwtPayload } from "jwt-decode";
+
+
 export const loginUser = async (loginData: FieldValues) => {
   try {
     const { data } = await axiosInstance.post("/auth/login", loginData);

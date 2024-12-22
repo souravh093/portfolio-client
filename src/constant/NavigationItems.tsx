@@ -20,11 +20,6 @@ const navItems: INavItem[] = [
     icon: <Home className="h-5 w-5" />,
   },
   {
-    name: "Appearances",
-    to: "/dashboard/appearance",
-    icon: <Brush className="h-5 w-5" />,
-  },
-  {
     name: "Educations",
     to: "/dashboard/education",
     icon: <Album className="w-5 h-5" />,
@@ -68,6 +63,11 @@ const navItems: INavItem[] = [
     name: "Socials",
     to: "/dashboard/social",
     icon: <MonitorPause className="w-5 h-5" />,
+  },
+  {
+    name: "Appearances",
+    to: "/dashboard/appearance",
+    icon: <Brush className="h-5 w-5" />,
   },
 ];
 

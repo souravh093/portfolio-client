@@ -20,6 +20,7 @@ import {
 } from "@/validations/auth/login.interface";
 import { useLogin } from "@/hooks/login.hook";
 import { useRouter, useSearchParams } from "next/navigation";
+import { toast } from "@/hooks/use-toast";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -37,16 +38,23 @@ const LoginForm = () => {
   const onSubmit = (data: LoginValues) => {
     loginUser(data, {
       onSuccess: () => {
-        alert("Login successful!");
-
         if (redirect) {
           router.push(redirect);
         } else {
           router.push("/dashboard");
         }
+
+        toast({
+          title: "Login successful",
+          description: "You have been logged in successfully",
+        });
       },
       onError: (error: any) => {
-        console.log(error.message || "Login failed. Please try again.");
+        toast({
+          title: "Login failed",
+          description: error.message,
+          variant: "destructive",
+        })
       },
     });
   };

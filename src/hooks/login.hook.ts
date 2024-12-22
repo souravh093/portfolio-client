@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { loginUser } from "@/services/login";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
 import { FieldValues } from "react-hook-form";
 
 export const useLogin = () => {
-//   const queryClient = useQueryClient();
-
   return useMutation({
     mutationKey: ["login"],
     mutationFn: async (loginData: FieldValues) => {
@@ -13,13 +12,9 @@ export const useLogin = () => {
     },
     onSuccess: (data) => {
       console.log("Login successful:", data);
-
-    //   // Optionally invalidate related queries
-    //   queryClient.invalidateQueries(["user"]);
-
-      // Trigger any additional logic if needed
     },
     onError: (error: any) => {
+      console.log(error)
       console.error("Login failed:", error.message);
     },
   });
