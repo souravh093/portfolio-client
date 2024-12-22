@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React from "react";
@@ -23,7 +24,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 const LoginForm = () => {
   const router = useRouter();
   const redirect = useSearchParams().get("redirect");
-  const { mutate: loginUser, isPending, isSuccess, data: datatt } = useLogin();
+  const { mutate: loginUser, isPending } = useLogin();
 
   const form = useForm({
     resolver: zodResolver(loginValidationSchema),
@@ -90,7 +91,7 @@ const LoginForm = () => {
             )}
           />
           <Button type="submit" size={"lg"} className="text-black">
-            Login
+            {isPending ? "Loading..." : "Login"}
           </Button>
         </form>
       </Form>

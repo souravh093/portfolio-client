@@ -1,20 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import { CircleUser, Menu, Package2 } from "lucide-react";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Menu, Package2 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import DashboardNavigation from "@/components/shared/DashboardNavigation";
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+import DashboardDropdown from "@/components/shared/DashboardDropdown";
+
+const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-muted/40 md:block">
@@ -51,29 +44,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             </SheetContent>
           </Sheet>
           <div className="w-full justify-end"></div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="secondary" size="icon" className="rounded-full">
-                {/* {userData?.data.image ? (
-                  <img
-                    src={userData.data.image}
-                    alt="avatar"
-                    className="w-8 h-8 rounded-full"
-                  />
-                ) : (
-                )} */}
-                <CircleUser className="h-8 w-8" />
-                <span className="sr-only">Toggle user menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Home</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <DashboardDropdown />
         </header>
 
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">

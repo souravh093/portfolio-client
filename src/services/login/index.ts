@@ -1,16 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
 import { axiosInstance } from "@/lib/axiosInstance";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
-
-/**
- * Handles user login by sending credentials to the backend.
- * On success, it stores access and refresh tokens in cookies.
- * 
- * @param loginData - User login data (email and password)
- * @returns The response from the login API
- */
+import { jwtDecode, JwtPayload } from "jwt-decode";
 export const loginUser = async (loginData: FieldValues) => {
   try {
     const { data } = await axiosInstance.post("/auth/login", loginData);
@@ -34,11 +28,29 @@ export const loginUser = async (loginData: FieldValues) => {
   }
 };
 
-/**
- * Refreshes the access token using the refresh token.
- * 
- * @returns The response containing the new access token
- */
+export const logoutUser = async () => {
+  (await cookies()).delete("accessToken");
+  (await cookies()).delete("refreshToken");
+};
+
+export interface CustomJwtPayload extends JwtPayload {
+  id: string;
+  email: string;
+  role: string;
+}
+
+export const currentUser = async () => {
+  const accessToken = (await cookies()).get("accessToken")?.value;
+
+  let decoded: CustomJwtPayload | null = null;
+
+  if (accessToken) {
+    decoded = jwtDecode<CustomJwtPayload>(accessToken);
+  }
+
+  return decoded;
+};
+
 export const getNewAccessToken = async () => {
   try {
     const cookieStore = await cookies();
@@ -48,9 +60,7 @@ export const getNewAccessToken = async () => {
       throw new Error("Refresh token not found");
     }
 
-    const { data } = await axiosInstance.post("/auth/refresh-token", {
-      refreshToken,
-    });
+    const { data } = await axiosInstance.post("/auth/refresh-token");
 
     if (data?.success) {
       cookieStore.set("accessToken", data?.accessToken, {
