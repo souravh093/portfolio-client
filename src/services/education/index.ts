@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
-import { toast } from "@/hooks/use-toast";
 import { axiosInstance } from "@/lib/axiosInstance";
 import { revalidateTag } from "next/cache";
 import { FieldValues } from "react-hook-form";
@@ -66,10 +65,6 @@ export const getEducations = async () => {
     return data;
   } catch (error: any) {
     console.error("Get educations error:", error.message);
-    toast({
-      title: "Error",
-      description: error?.response?.data?.message || "Get educations failed",
-    });
     throw new Error(error?.response?.data?.message || "Get educations failed");
   }
 };
