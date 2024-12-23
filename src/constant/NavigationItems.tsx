@@ -31,7 +31,7 @@ const navItems: INavItem[] = [
   },
   {
     name: "Services",
-    to: "/dashboard/service",
+    to: "/dashboard/services",
     icon: <HandPlatter className="w-5 h-5" />,
   },
   {
