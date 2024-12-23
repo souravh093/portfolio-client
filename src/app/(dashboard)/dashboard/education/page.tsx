@@ -48,7 +48,7 @@ const Education = async () => {
               <TableCell>{education.degree}</TableCell>
               <TableCell className="flex space-x-2">
                 <Link
-                  href={`/dashboard/education/edit-education/${education.id}`}
+                  href={`/dashboard/education/${education.id}`}
                 >
                   <Button size={"icon"} className="bg-primary text-white">
                     <Edit2Icon />

@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
 import { toast } from "@/hooks/use-toast";
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { axiosInstance } from "@/lib/axiosInstance";
 import { revalidateTag } from "next/cache";
 import { FieldValues } from "react-hook-form";
@@ -28,7 +28,30 @@ export const deleteEducations = async (id: string) => {
     return data;
   } catch (error: any) {
     console.error("Delete education error:", error.message);
-    throw new Error(error?.response?.data?.message || "Delete education failed");
+    throw new Error(
+      error?.response?.data?.message || "Delete education failed"
+    );
+  }
+};
+
+export const updateEducation = async (
+  id: string,
+  educationData: FieldValues
+) => {
+  try {
+    const { data } = await axiosInstance.put(
+      `/educations/${id}`,
+      educationData
+    );
+
+    revalidateTag("educations");
+
+    return data;
+  } catch (error: any) {
+    console.error("Update education error:", error.message);
+    throw new Error(
+      error?.response?.data?.message || "Update education failed"
+    );
   }
 };
 
@@ -37,7 +60,7 @@ export const getEducations = async () => {
     const { data } = await axiosInstance.get("/educations", {
       headers: {
         "Cash-Control": "no-cache",
-      }
+      },
     });
 
     return data;
@@ -48,5 +71,16 @@ export const getEducations = async () => {
       description: error?.response?.data?.message || "Get educations failed",
     });
     throw new Error(error?.response?.data?.message || "Get educations failed");
+  }
+};
+
+export const getEducation = async (id: string) => {
+  try {
+    const { data } = await axiosInstance.get(`/educations/${id}`);
+
+    return data;
+  } catch (error: any) {
+    console.error("Get education error:", error.message);
+    throw new Error(error?.response?.data?.message || "Get education failed");
   }
 };

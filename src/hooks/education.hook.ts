@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { addEducation, deleteEducations } from "@/services/education";
-import { useMutation } from "@tanstack/react-query";
+import { addEducation, deleteEducations, getEducation, updateEducation } from "@/services/education";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { FieldValues } from "react-hook-form";
 import { toast } from "./use-toast";
 
@@ -47,3 +47,43 @@ export const useDeleteEducation = () => {
     },
   });
 };
+
+export const useUpdateEducation = () => {
+  return useMutation({
+    mutationKey: ["educations"],
+    mutationFn: async (data: { id: string; educationData: FieldValues }) => {
+      return await updateEducation(data.id, data.educationData);
+    },
+    onSuccess: () => {
+      toast({
+        title: "Education updated",
+        description: "Education has been updated successfully",
+      });
+    },
+    onError: (error: any) => {
+      toast({
+        title: "Update education failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+};
+
+export const useGetEducationById = (id: string) => {
+  return useQuery({
+    queryKey: ["educations", id],
+    queryFn: async () => {
+      try {
+        return await getEducation(id);
+      } catch (error: any) {
+        toast({
+          title: "Get education failed",
+          description: error.message,
+          variant: "destructive",
+        });
+        throw error;
+      }
+    }
+  });
+}
