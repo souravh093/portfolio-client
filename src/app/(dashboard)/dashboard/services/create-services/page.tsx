@@ -112,7 +112,7 @@ const CreateServices = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Degree</FormLabel>
+                <FormLabel>Service Name</FormLabel>
                 <FormControl>
                   <Input placeholder="Enter your degree" {...field} />
                 </FormControl>

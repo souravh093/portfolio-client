@@ -1,9 +1,15 @@
-import React from 'react'
+import Footer from "@/components/shared/Footer";
+import Navigation from "@/components/shared/Navigation";
+import React from "react";
 
-const CommonLayout = () => {
+const CommonLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>CommonLayout</div>
-  )
-}
+    <>
+      <Navigation />
+      {children}
+      <Footer />
+    </>
+  );
+};
 
-export default CommonLayout
+export default CommonLayout;
