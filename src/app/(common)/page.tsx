@@ -6,6 +6,8 @@ import AboutMe from "./_components/AboutMe";
 import EducationExperience from "./_components/EducationExperience";
 import ProjectsView from "./_components/ProjectsView";
 import Blog from "./_components/Blog";
+import Technology from "./_components/Technology";
+import { ContactMe } from "./_components/ContactMe";
 
 const Home = async () => {
   return (
@@ -14,9 +16,11 @@ const Home = async () => {
       <ServicesShowcase />
       <MyService />
       <AboutMe />
+      <Technology />
       <EducationExperience />
       <ProjectsView />
       <Blog />
+      <ContactMe />
     </div>
   );
 };

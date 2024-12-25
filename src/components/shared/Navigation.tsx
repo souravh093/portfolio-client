@@ -17,7 +17,7 @@ const Navigation = () => {
         <div className="hidden md:flex items-center gap-10">
           <Link className="cursor-pointer" href={"/"}>Home</Link>
           <Link href={"/all-services"}>Services</Link>
-          <Link href={"/"}>About</Link>
+          <Link href={"#about"}>About</Link>
           <Link href={"/all-projects"}>Project</Link>
           <Link href={"/all-blogs"}>Blogs</Link>
           <Link href={"/"}>Testimonials</Link>

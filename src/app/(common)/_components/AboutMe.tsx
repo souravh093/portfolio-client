@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const AboutMe = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-20 container mx-auto items-center">
+    <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-10 my-20 container mx-auto items-center">
       <div className="bg-secondary w-full rounded-xl">
         <Image src={myImage} alt="My Image" />
       </div>
