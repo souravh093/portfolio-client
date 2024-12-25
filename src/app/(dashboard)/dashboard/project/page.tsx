@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import React from "react";
 import {
   Table,
@@ -13,6 +14,8 @@ import { ProjectTableHeader } from "@/constant/TableHeader.constant";
 import { getProjects } from "@/services/project";
 import Image from "next/image";
 import { TProject } from "@/types/project.type";
+import DeleteProject from "@/components/modal/DeleteProject";
+import { Edit2Icon } from "lucide-react";
 
 const Project = async () => {
   const projects = await getProjects();
@@ -53,9 +56,18 @@ const Project = async () => {
                 </TableCell>
                 <TableCell>{project.projectCategory}</TableCell>
                 <TableCell>{project.duration}</TableCell>
-                <TableCell>{project.projectUrl}</TableCell>
+                <TableCell>
+                  <Link className="font-bold px-4 py-1 bg-primary rounded-md" target="_blank" href={project.projectUrl}>
+                    View
+                  </Link>
+                </TableCell>
                 <TableCell className="flex space-x-2">
-                  {/* <DeleteTechnology id={project.id ?? ""} /> */}
+                  <Link href={`/dashboard/project/${project.id}`}>
+                    <Button size={"icon"} className="bg-primary text-white">
+                      <Edit2Icon />
+                    </Button>
+                  </Link>
+                  <DeleteProject id={project.id ?? ""} />
                 </TableCell>
               </TableRow>
             ))

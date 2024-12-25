@@ -11,7 +11,6 @@ import {
 import Selects from "react-select";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Form,
   FormControl,
@@ -146,7 +145,6 @@ const CreateProject = () => {
 
   return (
     <div className="w-full">
-      <h1 className="text-2xl font-bold mb-6">Create New Project</h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -305,7 +303,7 @@ const CreateProject = () => {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Service Description</FormLabel>
+                <FormLabel>Project Description</FormLabel>
                 <FormControl>
                   <ReactQuill
                     theme="snow"

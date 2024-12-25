@@ -34,3 +34,11 @@ export const ProjectTableHeader = [
   "Project Link",
   "Actions",
 ];
+
+export const BlogTableHeader = [
+  "S/N",
+  "Title",
+  "Category",
+  "Author",
+  "Actions",
+];
