@@ -3,11 +3,10 @@ import { getService } from "@/services/service";
 import Image from "next/image";
 
 const ServiceDetails = async ({ params }: { params: { id: string } }) => {
-  console.log(params.id);
   const serviceData = await getService(params.id);
 
   return (
-    <div className="h-screen">
+    <div className="min:h-screen">
       <div className="py-10 container mx-auto">
         <Image
           src={serviceData.data.logo}

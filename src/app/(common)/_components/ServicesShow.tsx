@@ -46,9 +46,7 @@ const services: Service[] = [
 const ServiceCard: React.FC<{ service: Service }> = ({ service }) => (
   <div className="flex items-center gap-2 mx-10">
     <h1 className="text-5xl font-bold">{service.name}</h1>
-    <span>
-    {service.icon}
-    </span>
+    <span>{service.icon}</span>
   </div>
 );
 

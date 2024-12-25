@@ -1,3 +1,5 @@
+import { TTechnology } from "./technology.types";
+
 export type TProject = {
   id: string;
   name: string;
@@ -15,4 +17,5 @@ export type TProjectUsedTechnology = {
   id?: string;
   projectId?: string;
   technologyId: string;
+  technology: TTechnology;
 };

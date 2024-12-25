@@ -4,6 +4,7 @@ import { ServicesShowcase } from "./_components/ServicesShow";
 import MyService from "./_components/MyService";
 import AboutMe from "./_components/AboutMe";
 import EducationExperience from "./_components/EducationExperience";
+import ProjectsView from "./_components/ProjectsView";
 
 const Home = async () => {
   return (
@@ -13,6 +14,7 @@ const Home = async () => {
       <MyService />
       <AboutMe />
       <EducationExperience />
+      <ProjectsView />
     </div>
   );
 };

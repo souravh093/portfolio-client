@@ -3,8 +3,15 @@ import { BackgroundLines } from "@/components/ui/background-lines";
 import React from "react";
 import portfolioImage from "@/assets/portfolio.png";
 import Image from "next/image";
+import { FlipWords } from "@/components/ui/flip-words";
 
 const Banner = () => {
+  const words = [
+    "Frontend Developer",
+    "Backend Developer",
+    "Fullstack Developer",
+    "MERN Stack Developer",
+  ];
   return (
     <div className="relative">
       <BackgroundLines className="w-full container mx-auto">
@@ -18,7 +25,7 @@ const Banner = () => {
               I'm <span className="text-secondary">Sourave</span>
             </h1>
             <h2 className="text-5xl font-black uppercase">
-              A FullStack Developer
+              <FlipWords words={words} /> <br />
             </h2>
 
             <div className="flex gap-5">

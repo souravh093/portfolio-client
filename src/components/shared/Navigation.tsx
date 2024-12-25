@@ -18,7 +18,7 @@ const Navigation = () => {
           <Link className="cursor-pointer" href={"/"}>Home</Link>
           <Link href={"/all-services"}>Services</Link>
           <Link href={"/"}>About</Link>
-          <Link href={"/"}>Project</Link>
+          <Link href={"/all-projects"}>Project</Link>
           <Link href={"/"}>Blogs</Link>
           <Link href={"/"}>Testimonials</Link>
         </div>
