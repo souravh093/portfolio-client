@@ -6,7 +6,6 @@ import GroupButton from "../shared/GroupButton";
 import ViewDetails from "../shared/ViewDetails";
 
 const ProjectCard = ({ data }: { data: TProject }) => {
-  console.log(data);
   return (
     <div className="my-10 p-4 rounded-3xl bg-[#705BC4] grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
       <Image

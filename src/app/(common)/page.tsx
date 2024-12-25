@@ -5,6 +5,7 @@ import MyService from "./_components/MyService";
 import AboutMe from "./_components/AboutMe";
 import EducationExperience from "./_components/EducationExperience";
 import ProjectsView from "./_components/ProjectsView";
+import Blog from "./_components/Blog";
 
 const Home = async () => {
   return (
@@ -15,6 +16,7 @@ const Home = async () => {
       <AboutMe />
       <EducationExperience />
       <ProjectsView />
+      <Blog />
     </div>
   );
 };

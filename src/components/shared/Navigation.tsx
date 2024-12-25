@@ -19,7 +19,7 @@ const Navigation = () => {
           <Link href={"/all-services"}>Services</Link>
           <Link href={"/"}>About</Link>
           <Link href={"/all-projects"}>Project</Link>
-          <Link href={"/"}>Blogs</Link>
+          <Link href={"/all-blogs"}>Blogs</Link>
           <Link href={"/"}>Testimonials</Link>
         </div>
         <Link

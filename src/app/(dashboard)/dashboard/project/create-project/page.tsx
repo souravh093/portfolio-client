@@ -83,7 +83,6 @@ const CreateProject = () => {
   }, [technologiesData]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
     let imageUrl: string | null | undefined = null;
 
     if (data.image) {

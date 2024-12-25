@@ -19,7 +19,6 @@ const DashboardDropdown = () => {
 
   const handleLogout = async () => {
     await logoutUser();
-    console.log("Logged out");
     router.push("/");
   };
   return (
