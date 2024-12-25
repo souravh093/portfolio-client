@@ -17,3 +17,20 @@ export const ExperienceTableHeader = [
 ];
 
 export const ServiceTableHeader = ["S/N", "Service Name", "Logo", "Actions"];
+
+export const TechnologyTableHeader = [
+  "S/N",
+  "Logo",
+  "Technology Name",
+  "Category",
+  "Actions",
+];
+
+export const ProjectTableHeader = [
+  "S/N",
+  "Project Name",
+  "Category",
+  "Duration",
+  "Project Link",
+  "Actions",
+];
