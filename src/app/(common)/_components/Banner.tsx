@@ -4,13 +4,12 @@ import React from "react";
 import portfolioImage from "@/assets/portfolio.png";
 import Image from "next/image";
 import { FlipWords } from "@/components/ui/flip-words";
+import DownloadResume from "@/components/shared/DownloadResume";
 
 const BannerAction = () => {
   return (
     <div className="flex flex-col sm:flex-row gap-5">
-      <button className="bg-secondary text-white py-3 px-6 sm:px-10 rounded-3xl">
-        <a href="#contact">Download Resume</a>
-      </button>
+      <DownloadResume />
       <button className="bg-secondary text-white py-3 px-6 sm:px-10 rounded-3xl">
         <a href="#contact">Hire me</a>
       </button>
@@ -45,7 +44,11 @@ const Banner = () => {
           </div>
 
           <div className="md:block hidden">
-            <Image src={portfolioImage} alt="Portfolio" className="w-full h-auto" />
+            <Image
+              src={portfolioImage}
+              alt="Portfolio"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </BackgroundLines>

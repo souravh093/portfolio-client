@@ -4,7 +4,7 @@ import { TProject } from "@/types/project.type";
 import React from "react";
 
 const AllProjects = async () => {
-  const data = await fetch(`${envConfig.baseApi}/project`, {
+  const data = await fetch(`${envConfig.baseApi}/projects`, {
     cache: "no-cache",
   });
 

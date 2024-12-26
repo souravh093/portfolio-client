@@ -2,12 +2,15 @@
 import React from "react";
 import myImage from "@/assets/portfolio.png";
 import Image from "next/image";
-import { MoveRight } from "lucide-react";
-import Link from "next/link";
+import DownloadCV from "@/components/shared/DownloadCV";
+import DownloadResume from "@/components/shared/DownloadResume";
 
 const AboutMe = () => {
   return (
-    <div id="about" className="grid grid-cols-1 md:grid-cols-2 gap-10 my-20 container mx-auto items-center">
+    <div
+      id="about"
+      className="grid grid-cols-1 md:grid-cols-2 gap-10 my-20 container mx-auto items-center"
+    >
       <div className="bg-secondary w-full rounded-xl">
         <Image src={myImage} alt="My Image" />
       </div>
@@ -37,37 +40,21 @@ const AboutMe = () => {
           <div className="flex items-center gap-5 my-5">
             <div>
               <span className="text-4xl font-bold text-gray-700">1+</span>
-              <h3 className="text-2xl font-semibold text-gray-600">Years of Experience</h3>
+              <h3 className="text-2xl font-semibold text-gray-600">
+                Years of Experience
+              </h3>
             </div>
-            <div >
+            <div>
               <span className="text-4xl font-bold text-gray-700">5+</span>
-              <h3 className="text-2xl font-semibold text-gray-600">Projects Completed</h3>
+              <h3 className="text-2xl font-semibold text-gray-600">
+                Projects Completed
+              </h3>
             </div>
           </div>
 
           <div className="flex items-center gap-5">
-            <div className="flex items-center gap-2 bg-gray-200 rounded-3xl pl-3">
-              <span className="bg-secondary my-2 rounded-full p-2 text-white">
-                <MoveRight />
-              </span>
-              <Link
-                className="bg-primary rounded-3xl py-4 px-5"
-                href="/all-services"
-              >
-                Download Resume
-              </Link>
-            </div>
-            <div className="flex items-center gap-2 bg-gray-200 rounded-3xl pl-3">
-              <span className="bg-secondary my-2 rounded-full p-2 text-white">
-                <MoveRight />
-              </span>
-              <Link
-                className="bg-primary rounded-3xl py-4 px-5"
-                href="/all-services"
-              >
-                Download CV
-              </Link>
-            </div>
+            <DownloadResume />
+            <DownloadCV />
           </div>
         </div>
       </div>

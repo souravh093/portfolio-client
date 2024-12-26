@@ -4,7 +4,7 @@ import { TBlog } from "@/types/blog.types";
 import React from "react";
 
 const AllBlogs = async () => {
-  const data = await fetch(`${envConfig.baseApi}/blog`, {
+  const data = await fetch(`${envConfig.baseApi}/blogs`, {
     cache: "no-cache",
   });
 
