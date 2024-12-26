@@ -1,13 +1,20 @@
-import { getEducations } from "@/services/education";
-import { getExperiences } from "@/services/experience";
+import envConfig from "@/config/envConfig";
 import { TEducation } from "@/types/education.types";
 import { TExperience } from "@/types/experience.types";
 import { BriefcaseBusiness, NotebookPen } from "lucide-react";
 import React from "react";
 
 const EducationExperience = async () => {
-  const experiences = await getExperiences();
-  const educations = await getEducations();
+  const experienceData = await fetch(`${envConfig.baseApi}/experiences`, {
+    cache: "no-cache",
+  });
+
+  const educationData = await fetch(`${envConfig.baseApi}/educations`, {
+    cache: "no-cache",
+  });
+  const experiences = await experienceData.json();
+  const educations = await educationData.json();
+  
   return (
     <div className="my-10 container mx-auto">
       <div className="relative">

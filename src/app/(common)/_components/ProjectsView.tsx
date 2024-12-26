@@ -1,12 +1,16 @@
 import ProjectCard from "@/components/card/ProjectCard";
-import { getProjects } from "@/services/project";
+import envConfig from "@/config/envConfig";
 import { TProject } from "@/types/project.type";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 const ProjectsView = async () => {
-  const projects = await getProjects();
+  const data = await fetch(`${envConfig.baseApi}/projects`, {
+    cache: "no-cache",
+  });
+  const projects = await data.json();
+
   return (
     <div className="bg-secondary py-20">
       <div className="relative">

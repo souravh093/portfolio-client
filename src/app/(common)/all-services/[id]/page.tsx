@@ -1,9 +1,22 @@
 import DescriptionView from "@/components/shared/DescriptionView";
-import { getService } from "@/services/service";
+import envConfig from "@/config/envConfig";
 import Image from "next/image";
 
-const ServiceDetails = async ({ params }: { params: { id: string } }) => {
-  const serviceData = await getService(params.id);
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+const ServiceDetails = async ({ params }: PageProps) => {
+  const resolvedParams = await params;
+  const { id } = resolvedParams;
+
+  const data = await fetch(`${envConfig.baseApi}/services/${id}`);
+
+  const serviceData = await data.json();
+
+  console.log(serviceData)
 
   return (
     <div className="min:h-screen">
@@ -17,7 +30,9 @@ const ServiceDetails = async ({ params }: { params: { id: string } }) => {
         />
       </div>
       <div className="container mx-auto">
-        <h1 className="text-5xl font-bold my-4 text-secondary">{serviceData.data.name}</h1>
+        <h1 className="text-5xl font-bold my-4 text-secondary">
+          {serviceData.data.name}
+        </h1>
 
         <DescriptionView content={serviceData.data.description} details />
       </div>

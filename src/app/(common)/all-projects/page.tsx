@@ -1,10 +1,14 @@
 import ProjectCard from "@/components/card/ProjectCard";
-import { getProjects } from "@/services/project";
+import envConfig from "@/config/envConfig";
 import { TProject } from "@/types/project.type";
 import React from "react";
 
 const AllProjects = async () => {
-  const projects = await getProjects();
+  const data = await fetch(`${envConfig.baseApi}/project`, {
+    cache: "no-cache",
+  });
+
+  const projects = await data.json();
   return (
     <div className="bg-secondary min-h-screen py-20 relative">
       <h1 className="absolute left-96 z-0 text-7xl font-black text-gray-400 tracking-widest opacity-20 uppercase">

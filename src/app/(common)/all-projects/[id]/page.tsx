@@ -1,12 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import DescriptionView from "@/components/shared/DescriptionView";
-import { getProject } from "@/services/project";
+import envConfig from "@/config/envConfig";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const ProjectDetails = async ({ params }: { params: { id: string } }) => {
-  const projectData = await getProject(params.id);
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+const ProjectDetails = async ({ params }: PageProps) => {
+  const resolvedParams = await params;
+  const {id} = resolvedParams;
+  
+  const data = await fetch(`${envConfig.baseApi}/projects/${id}`);
+
+  const projectData = await data.json();
+
   return (
     <div className="container min-h-screen mx-auto">
       <div>
@@ -30,13 +43,25 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
             Project Duration:
             <span className="font-bold">{projectData.data.duration}</span>
           </h1>
-          <Link target="_blank" className="underline" href={projectData.data.projectUrl}>
+          <Link
+            target="_blank"
+            className="underline"
+            href={projectData.data.projectUrl}
+          >
             Live URL
           </Link>
-          <Link target="_blank" className="underline" href={projectData.data.githubClientUrl}>
+          <Link
+            target="_blank"
+            className="underline"
+            href={projectData.data.githubClientUrl}
+          >
             Github Client URL
           </Link>
-          <Link target="_blank" className="underline" href={projectData.data.githubServerUrl}>
+          <Link
+            target="_blank"
+            className="underline"
+            href={projectData.data.githubServerUrl}
+          >
             Github Server URL
           </Link>
         </div>

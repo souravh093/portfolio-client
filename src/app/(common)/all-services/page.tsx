@@ -1,10 +1,17 @@
 import ServiceCard from "@/components/card/ServiceCard";
-import { getServices } from "@/services/service";
+import envConfig from "@/config/envConfig";
 import { TService } from "@/types/service.types";
 import React from "react";
 
 const AllServices = async () => {
-  const services = await getServices();
+  const data = await fetch(`${envConfig.baseApi}/services`, {
+    cache: "no-cache",
+  });
+
+  const services = await data.json();
+
+  console.log(services)
+
   return (
     <div className="bg-secondary py-20 relative">
       <h1 className="absolute left-1/2 z-0 text-7xl font-black text-gray-400 tracking-widest opacity-20 uppercase">

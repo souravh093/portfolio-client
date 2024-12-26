@@ -1,13 +1,16 @@
 import BlogCard from "@/components/card/BlogCard";
-import { getBlogs } from "@/services/blog";
+import envConfig from "@/config/envConfig";
 import { TBlog } from "@/types/blog.types";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 const Blog = async () => {
-  const blogs = await getBlogs();
-  console.log(blogs)
+  const data = await fetch(`${envConfig.baseApi}/blogs`, {
+    cache: "no-cache",
+  });
+
+  const blogs = await data.json();
   return (
     <div className="relative my-10">
       <h1 className="absolute left-0 z-0 text-7xl font-black text-gray-400 tracking-widest opacity-20 uppercase">

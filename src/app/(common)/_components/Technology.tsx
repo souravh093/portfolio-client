@@ -1,10 +1,13 @@
 import SkillCard from "@/components/card/SkillCard";
-import { getTechnologies } from "@/services/technology";
+import envConfig from "@/config/envConfig";
 import { TTechnology } from "@/types/technology.types";
 import React from "react";
 
 const Technology = async () => {
-  const technologies = await getTechnologies();
+  const data = await fetch(`${envConfig.baseApi}/technologies`, {
+    cache: "no-cache",
+  });
+  const technologies = await data.json();
   return (
     <div className="bg-secondary relative py-20">
       <h1 className="absolute left-0 z-0 text-7xl font-black text-gray-400 tracking-widest opacity-20 uppercase">

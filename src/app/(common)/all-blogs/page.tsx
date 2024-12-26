@@ -1,10 +1,14 @@
 import BlogCard from "@/components/card/BlogCard";
-import { getBlogs } from "@/services/blog";
+import envConfig from "@/config/envConfig";
 import { TBlog } from "@/types/blog.types";
 import React from "react";
 
 const AllBlogs = async () => {
-  const blogs = await getBlogs();
+  const data = await fetch(`${envConfig.baseApi}/blog`, {
+    cache: "no-cache",
+  });
+
+  const blogs = await data.json();
   return (
     <div className="bg-secondary min-h-screen py-20 relative">
       <h1 className="absolute left-[450px] z-0 text-7xl font-black text-gray-400 tracking-widest opacity-20 uppercase">

@@ -1,12 +1,24 @@
 import DescriptionView from "@/components/shared/DescriptionView";
-import { getBlog } from "@/services/blog";
+import envConfig from "@/config/envConfig";
 import { CircleUser } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-const BlogDetails = async ({ params }: { params: { id: string } }) => {
-  const blogData = await getBlog(params.id);
-  console.log(blogData);
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+const BlogDetails = async ({ params }: PageProps) => {
+  const resolvedParams = await params;
+  const { id } = resolvedParams;
+
+  const data = await fetch(`${envConfig.baseApi}/blogs/${id}`, {
+    cache: "no-cache",
+  });
+
+  const blogData = await data.json();
   return (
     <div className="min-h-screen container mx-auto">
       <div>
