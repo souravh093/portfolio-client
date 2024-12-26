@@ -18,7 +18,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
               className="flex items-center gap-2 font-semibold text-green-500"
             >
               <Package2 className="h-6 w-6" />
-              <span className="font-black">LOOMORA</span>
+              <span className="font-black">SOURAVE</span>
             </Link>
           </div>
           <div className="flex-1">

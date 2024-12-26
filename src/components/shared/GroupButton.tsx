@@ -12,7 +12,7 @@ const GroupButton = ({
   githubServerUrl: string;
 }) => {
   return (
-    <div className="flex items-center gap-3 bg-[#8373c4] py-3 rounded-3xl px-3 my-3">
+    <div className="flex flex-col gap-3 lg:flex-row bg-[#8373c4] py-3 rounded-3xl px-3 my-3">
       <div className="flex items-center gap-2 bg-white rounded-3xl pl-3">
         <span className="bg-secondary my-2 rounded-full p-2 text-white">
           <MoveRight />

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-
+import logo from "@/assets/logo.png";
+import Image from "next/image";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,19 +12,29 @@ const Navigation = () => {
   };
 
   return (
-    <div className="bg-white z-50 w-full">
+    <div className="bg-white z-50 w-full sticky top-0">
       <div className="flex items-center justify-between container mx-auto p-4">
-        <div>LOGO</div>
-        <div className="hidden md:flex items-center gap-10">
-          <Link className="cursor-pointer" href={"/"}>Home</Link>
-          <Link href={"/all-services"}>Services</Link>
-          <Link href={"#about"}>About</Link>
-          <Link href={"/all-projects"}>Project</Link>
-          <Link href={"/all-blogs"}>Blogs</Link>
-          <Link href={"/"}>Testimonials</Link>
+        <div>
+          <Link href={"/"}>
+            <Image
+              src={logo}
+              alt="logo"
+              width={60}
+              height={30}
+              className="cursor-pointer"
+            />
+          </Link>
+        </div>
+        <div className="hidden md:flex items-center gap-10 font-semibold">
+          <Link className="hover:text-primary hover:transition duration-200" href={"/"}>Home</Link>
+          <Link className="hover:text-primary hover:transition duration-200" href={"/all-services"}>Services</Link>
+          <Link className="hover:text-primary hover:transition duration-200" href={"#about"}>About</Link>
+          <Link className="hover:text-primary hover:transition duration-200" href={"/all-projects"}>Project</Link>
+          <Link className="hover:text-primary hover:transition duration-200" href={"/all-blogs"}>Blogs</Link>
+          {/* <Link href={"/"}>Testimonials</Link> */}
         </div>
         <Link
-          href={"/"}
+          href={"#contact"}
           className="hidden md:block bg-secondary text-white py-3 px-10 rounded-3xl"
         >
           <button>Contact Me</button>

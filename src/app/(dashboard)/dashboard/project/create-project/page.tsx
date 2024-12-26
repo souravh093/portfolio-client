@@ -126,7 +126,6 @@ const CreateProject = () => {
       ),
     };
 
-    console.log(projectData);
     addProject(projectData);
 
     form.reset();

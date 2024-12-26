@@ -24,19 +24,19 @@ const Footer = () => {
                 Home
               </Link>
               <Link
-                href="/about"
+                href="#about"
                 className="block hover:text-white transition-colors"
               >
                 About
               </Link>
               <Link
-                href="/projects"
+                href="/all-projects"
                 className="block hover:text-white transition-colors"
               >
                 Projects
               </Link>
               <Link
-                href="/contact"
+                href="#contact"
                 className="block hover:text-white transition-colors"
               >
                 Contact
@@ -47,7 +47,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/sourav.halder.231895/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
@@ -56,7 +56,7 @@ const Footer = () => {
                 <span className="sr-only">Facebook</span>
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/souravehalder1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
@@ -65,7 +65,7 @@ const Footer = () => {
                 <span className="sr-only">Twitter</span>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/souravbd093/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
@@ -74,7 +74,7 @@ const Footer = () => {
                 <span className="sr-only">Instagram</span>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/sourave-halder-86a360178/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
@@ -83,7 +83,7 @@ const Footer = () => {
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/souravh093"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors"
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-sm text-center">
           <p>
-            &copy; {new Date().getFullYear()} Brand Name. All rights reserved.
+            &copy; {new Date().getFullYear()} SOURAVE HALDER. All rights reserved.
           </p>
         </div>
       </div>
