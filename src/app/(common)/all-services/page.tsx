@@ -10,7 +10,6 @@ const AllServices = async () => {
 
   const services = await data.json();
 
-  console.log(services)
 
   return (
     <div className="bg-secondary py-20 relative">

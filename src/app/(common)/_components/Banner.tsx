@@ -8,7 +8,7 @@ import DownloadResume from "@/components/shared/DownloadResume";
 
 const BannerAction = () => {
   return (
-    <div className="flex flex-col sm:flex-row gap-5">
+    <div className="flex flex-col justify-center sm:flex-row gap-5">
       <DownloadResume />
       <button className="bg-secondary text-white py-3 px-6 sm:px-10 rounded-3xl">
         <a href="#contact">Hire me</a>
@@ -25,10 +25,18 @@ const Banner = () => {
     "MERN Stack Developer",
   ];
   return (
-    <div className="relative">
+    <div className="relative pt-20">
       <BackgroundLines className="w-full container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div className="flex flex-col gap-5 text-center md:text-left">
+        <div>
+          <div className="flex items-center justify-center">
+            <Image
+              src={portfolioImage}
+              alt="Portfolio"
+              className="w-44 h-44 rounded-full object-cover bg-primary"
+            />
+          </div>
+
+          <div className="flex flex-col gap-5 text-center">
             <h3 className="text-xl sm:text-2xl font-bold">
               <span className="text-secondary font-bold">-</span>
               Hello
@@ -41,14 +49,6 @@ const Banner = () => {
             </h2>
 
             <BannerAction />
-          </div>
-
-          <div className="md:block hidden">
-            <Image
-              src={portfolioImage}
-              alt="Portfolio"
-              className="w-full h-auto"
-            />
           </div>
         </div>
       </BackgroundLines>

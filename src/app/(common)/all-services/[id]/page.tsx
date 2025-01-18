@@ -16,7 +16,6 @@ const ServiceDetails = async ({ params }: PageProps) => {
 
   const serviceData = await data.json();
 
-  console.log(serviceData)
 
   return (
     <div className="min:h-screen">
