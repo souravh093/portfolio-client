@@ -59,6 +59,7 @@ const CreateTechnology = () => {
       name: data.name,
       category: data.category,
       logo: logoUrl,
+      proficiency: 0, // or any default value
     };
 
     addTechnology(technologyData);

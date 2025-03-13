@@ -29,7 +29,7 @@ const AllProjects = async () => {
         </div>
       </div>
 
-      <div className="container mx-auto my-10 grid grid-cols-1">
+      <div className="container mx-auto my-10 grid grid-cols-1 gap-5">
         {projects?.data?.map((project: TProject) => (
           <ProjectCard key={project.id} data={project} />
         ))}
